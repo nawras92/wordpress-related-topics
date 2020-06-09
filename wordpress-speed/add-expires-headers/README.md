@@ -1,0 +1,26 @@
+# Add Expires Headers
+
+- Add this code to the .htaccess file in the website root directory.
+
+*This code will only work on apache servers.*
+
+```
+## Expires Headers ##
+<IfModule mod_expires.c>
+
+  ## Turn the expires module on.
+  ExpiresActive On
+  
+  ### Website Images will be cached for one year ###
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  
+  ### CSS & Javascript will be cached for one month ###
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+```
